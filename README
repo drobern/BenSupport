@@ -1,0 +1,13 @@
+install the following:
+nodejs server
+mysql 
+apache
+
+and the following node modules
+easy-mysql
+formidable
+jquery
+moment
+mysql
+
+change the IP in requesthander.js for mysql server to your IP
