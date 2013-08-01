@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" charset="utf-8"/>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0-rc.3/handlebars.min.js"></script>
+  <script id="row-template" type="text/x-handlebars-template">
+    <tr> <td><a href="./forumDetail.html?id={{ id }}"> <div> {{ id }} </div></a></td>
+    <td><a href="./forumDetail.html?id={{ id }}"> <div> {{ name }} </div></a></td>
+    <td><a href="./forumDetail.html?id={{ id }}"><div> {{ description }} </div></a></td></tr>
+  </script>
+
+  <script type="text/javascript">
+
+  var nameTemplate;
+  
+  $(function()
+  {
+      
+      nameTemplate = Handlebars.compile($('#row-template').html());
+      // for(var i = 0; i < array.length; i++) {
+      // 	"name" + i;
+      // }
+      var forum = $.ajax({
+      	url: "http://192.168.223.58:5555/ForumList",
+        dataType:"json",
+        async: false,
+        success: function(data) {
+        	  console.log(data);
+        	  var count = 0;
+        	  $(jQuery.parseJSON(JSON.stringify(data.forums))).each(function() { 
+        		console.log(this.name+' '+this.description);
+        		$('#forms-table').append(nameTemplate(this));
+        	});
+        }
+      });
+		$("tr:even").css("background-color", "#CCCCCC");
+  });
+
+  </script>
+
+  </head>
+<body>
+  <form> 
+    <input type=button 
+      value="Reports Home"
+      onClick="self.location='../'"><tr>
+  </form>
+  <H1>Benbria Forums</H1>
+  <table id="forms-table" width="100%" border ="1" bordercolor="#FFFFFF">
+  <tr><th>ID</th>
+  <th>NAME</th>
+  <th>DESCRIPTION</th></tr>
+  
+  </table>
+  
+  </body>
+</html>

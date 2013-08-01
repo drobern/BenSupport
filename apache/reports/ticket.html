@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" charset="utf-8"/>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    
+    function gup( name )
+    {
+      name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+      var regexS = "[\\?&]"+name+"=([^&#]*)";
+      var regex = new RegExp( regexS );
+      var results = regex.exec( window.location.href );
+      if( results == null )
+        return "";
+      else
+        return results[1];
+    }
+
+    var index = gup( 'id' );
+
+    var request = $.ajax({
+        url: "http://192.168.223.58:5555/ticketDetails",
+        type: "post",
+        dataType:"json",
+        data: index,
+        success: function(data) {
+          document.getElementById('id').innerHTML = data.ticket.id;
+	  document.getElementById('id').href = "https://benbria.zendesk.com/tickets/"+data.ticket.id;
+          document.getElementById('subject').innerHTML = data.ticket.subject;
+          document.getElementById('startdate').innerHTML = data.ticket.created_at;
+          document.getElementById('type').innerHTML = data.ticket.type;
+          document.getElementById('priority').innerHTML = data.ticket.priority; 
+          document.getElementById('status').innerHTML = data.ticket.status;
+          document.getElementById('updated').innerHTML = data.ticket.updated_at;
+          document.getElementById('description').innerHTML = data.ticket.description;
+          console.log(data);
+        }
+    });
+
+    $(document).ready(function()
+    {
+      $("tr:even").css("background-color", "#CCCCCC");
+    });
+
+  </script>
+    <base target="_blank">
+  </head>
+<body>
+  <form> 
+    <input type=button 
+      value="Reports Home"
+      onClick="self.location='../'">
+  </form>
+  <H1>Benbria OPS Ticket Details</H1>
+  <table width="100%" border ="1" bordercolor="#FFFFFF">
+  <tr><th>ID</th>
+  <td><a href="www.tobechanged.comd" id='id'><div id="id"></a></td></tr>
+  <tr><th>SUBJECT</th>
+  <td><div id="subject"></td></tr>
+  <tr><th>START DATE</th>
+  <td><div id="startdate"></td></tr>
+  <tr><th>DESCRIPTION</th>
+  <td><div id="description"></td></tr>
+  <tr><th><bold>TYPE</th>
+  <td><div id="type"></td></tr>
+  <tr><th>PRIORITY</th>
+  <td><div id="priority"></td></tr>
+  <tr><th>UPDATE DATE</th>
+  <td><div id="updated"></td></tr>
+  <tr><th>STATUS</th>
+  <td><div id="status"></td></tr>
+  </table>
+  
+  </body>
+</html>

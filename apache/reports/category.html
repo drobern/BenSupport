@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" charset="utf-8"/>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+      
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawChart);
+      
+    function drawChart() {
+      var allData = $.ajax({
+          url: "http://192.168.223.58:5555/CatAll",
+          dataType:"json",
+          async: false
+          }).responseText;
+          
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(allData);
+
+      var options = {
+                  title: 'All Category Tickets',
+                  titleTextStyle: {color: '#5c5c5c'},
+                  titlePosition: 'out'
+      };
+
+      
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+  </script>
+
+	</head>
+  <body>
+	 <table border="1" bordercolor="#ffffff" style="background-color:#ffffff" 
+		   width="100%" cellpadding="0" cellspacing="1">
+    <td>
+    <form> 
+    <input type=button 
+      value="Reports Home"
+      onClick="self.location='../'">
+    </form>
+    </td>
+    <tr><td>
+    <!--Div that will hold the bar chart-->
+    <div id="chart_div" style="width: 1200px; height: 700px;"></div></td></tr>
+    <tr><td><div id="chart_div_jan" style="width: 1200px; height: 700px;"></div></td></tr>
+    <tr><td><div id="chart_div_feb" style="width: 1200px; height: 700px;"></div></td></tr>
+    <tr><td><div id="chart_div_mar" style="width: 1200px; height: 700px;"></div></td></tr> 
+
+   </table>
+  </body>
+</html>

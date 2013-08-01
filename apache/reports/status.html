@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" charset="utf-8"/>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+      
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawChart);
+      
+    function drawChart() {
+      var status = $.ajax({
+          url: "http://192.168.223.58:5555/Status",
+          dataType:"json",
+          async: false
+          }).responseText;
+          
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(status);
+
+      var options = {
+          				title: 'Requested vs. Solved by Month',
+          				hAxis: {title: 'Months',  titleTextStyle: {color: 'red'}}
+      			};
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+
+
+	</script>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" charset="utf-8"/>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+      
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawChart);
+      
+    function drawChart() {
+      var priority = $.ajax({
+          url: "http://192.168.223.58:5555/Priority",
+          dataType:"json",
+          async: false
+          }).responseText;
+          
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(priority);
+
+      var options = {
+                  title: 'Tickets by Priority',
+      };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.PieChart(document.getElementById('chart_div_priority'));
+      chart.draw(data, options);
+    }
+
+
+  </script>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" charset="utf-8"/>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+      
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawChart);
+      
+    function drawChart() {
+      var type = $.ajax({
+          url: "http://192.168.223.58:5555/Type",
+          dataType:"json",
+          async: false
+          }).responseText;
+          
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(type);
+
+      var options = {
+                  title: 'Tickets by Type',
+      };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.PieChart(document.getElementById('chart_div_type'));
+      chart.draw(data, options);
+    }
+
+
+  </script>
+
+   <script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+      
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawChart);
+      
+    function drawChart() {
+      var compare = $.ajax({
+          url: "http://192.168.223.58:5555/Compare",
+          dataType:"json",
+          async: false
+          }).responseText;
+          
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(compare);
+
+      var options = {
+                  title: 'BC/BL Tickets',
+                  hAxis: {title: 'Months',  titleTextStyle: {color: 'red'}}
+            };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div_compare'));
+      chart.draw(data, options);
+    }
+
+
+  </script>
+
+  <script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+      
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawChart);
+      
+    function drawChart() {
+      var metrics = $.ajax({
+          url: "http://192.168.223.58:5555/Metrics",
+          dataType:"json",
+          async: false
+          }).responseText;
+          
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(metrics);
+
+      var options = {
+                  title: 'Avg. Days to Close vs. Avg. Days Open',
+                  hAxis: {title: 'Months',  titleTextStyle: {color: 'red'}}
+            };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div_metrics'));
+      chart.draw(data, options);
+    }
+</script>
+
+</head>
+<body>
+	<table border="1" bordercolor="#ffffff" style="background-color:#ffffff" 
+		   width="100%" cellpadding="0" cellspacing="1">
+  <td>
+  <form> 
+    <input type=button 
+      value="Reports Home"
+      onClick="self.location='../'">
+  </form>
+  </td>
+	<tr><td>
+<!--Div that will hold the bar chart-->
+    <div id="chart_div" style="width: 600px; height: 300px;"></div></td>
+    <td><div id="chart_div_compare" style="width: 600px; height: 300px;"></div></td></tr>
+    <tr><td><div id="chart_div_priority" style="width: 900px; height: 700px;"></div></td>
+    <td><div id="chart_div_type" style="width: 900px; height: 700px;"></div></td></tr>
+    <tr><td><div id="chart_div_metrics" style="width: 700px; height: 400px;"></div></td>
+  </table>
+</body>
+</html>

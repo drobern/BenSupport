@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" charset="utf-8"/>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+      
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawChart);
+      
+    function drawChart() {
+      var weekOpen = $.ajax({
+          url: "http://192.168.223.58:5555/WeekOpen",
+          dataType:"json",
+          async: false
+          }).responseText;
+          
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(weekOpen);
+
+      var options = {
+                  title: 'Tickets Opened in Last 7 Days',
+                  hAxis: {title: 'Date',  titleTextStyle: {color: 'red'}},
+                  colors: ["#FF0000"]
+            };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div_weekopen'));
+      chart.draw(data, options);
+    }
+  </script>
+
+  <script type="text/javascript">
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+      
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawChart);
+      
+    function drawChart() {
+      var weekClose = $.ajax({
+          url: "http://192.168.223.58:5555/WeekClose",
+          dataType:"json",
+          async: false
+          }).responseText;
+          
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(weekClose);
+
+      var options = {
+                  title: 'Tickets Closed in Last 7 Days',
+                  hAxis: {title: 'Date',  titleTextStyle: {color: 'red'}},
+                  colors: ["#FF0000"]
+            };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div_weekclose'));
+      chart.draw(data, options);
+    }
+  </script>
+
+  <script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+      
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawWeek);
+      
+    function drawWeek() {
+      var weekData = $.ajax({
+          url: "http://192.168.223.58:5555/BlWeek",
+          dataType:"json",
+          async: false
+          }).responseText;
+          
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(weekData);
+
+      var options = {
+                  title: 'Weekly BlazeLoop Customers',
+                  vAxis: {title: 'Customers',  titleTextStyle: {color: 'red'}}
+            };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.BarChart(document.getElementById('chart_bl_week'));
+      chart.draw(data, options);
+    }
+  </script>
+
+  <script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawWeek);
+
+    function drawWeek() {
+      var weekData = $.ajax({
+          url: "http://192.168.223.58:5555/BlCatWeek",
+          dataType:"json",
+          async: false
+          }).responseText;
+
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(weekData);
+
+      var options = {
+                  title: 'Weekly BlazeLoop Categories',
+      };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.PieChart(document.getElementById('chart_bl_cat_week'));
+      chart.draw(data, options);
+    }
+  </script>
+
+  <script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+      
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawWeek);
+      
+    function drawWeek() {
+      var weekData = $.ajax({
+          url: "http://192.168.223.58:5555/CustWeek",
+          dataType:"json",
+          async: false
+          }).responseText;
+          
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(weekData);
+
+      var options = {
+                  title: 'Weekly BlazeCast Customers',
+                  vAxis: {title: 'Customers',  titleTextStyle: {color: 'red'}}
+            };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.BarChart(document.getElementById('chart_cust_week'));
+      chart.draw(data, options);
+    }
+  </script>
+
+  <script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+      
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawWeek);
+      
+    function drawWeek() {
+      var weekData = $.ajax({
+          url: "http://192.168.223.58:5555/CatWeek",
+          dataType:"json",
+          async: false
+          }).responseText;
+          
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(weekData);
+
+      var options = {
+                  title: 'Weekly BlazeCast Categories',
+      };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.PieChart(document.getElementById('chart_cat_week'));
+      chart.draw(data, options);
+    }
+  </script>
+
+  </head>
+<body>
+  <form> 
+    <input type=button 
+      value="Reports Home"
+      onClick="self.location='../'">
+  </form>
+  <H1>Benbria OPS Weekly Report</H1>
+  <ul>
+    <b><li>12 NEW TICKETS OPENED
+    <li>13 TICKETS CLOSED
+    <li>9 NEW BLAZECAST TICKETS
+    <li>3 NEW BLAZELOOP TICKETS
+  </ul></b>
+  <p>
+  <H2>Weekly Summary of Events</H2>
+    <ol>
+      <li>A&W - New locations and departments requested. Nancy's device had isolated issue with email digest on her device
+      <li>Princeton - Issues remain with Boot GRUB menu appearing on restart. Made some config changes and requested restart still waiting for them
+      <li>JITB - Nightly report caught invalid import. Restored backup from previous day
+      <li>CHOATE - Server install and configuration almost all complete less Valcom and page groups. Organize this and training date on Monday 
+      <li>TAMU - remotely flashed 3 speakers that failed to register
+    </ol>
+  </p>
+  <table border="1" bordercolor="#ffffff" style="background-color:#ffffff" 
+       width="100%" cellpadding="0" cellspacing="1">
+       <!--Div that will hold the bar chart-->
+  <tr><td><div id="chart_div_weekopen" style="width: 700px; height: 400px;"></div></td>
+  <td><div id="chart_div_weekclose" style="width: 700px; height: 400px;"></div></td></tr>
+  <tr><td><div id="chart_bl_week" style="width: 700px; height: 400px;"></div></td>
+  <td><div id="chart_cust_week" style="width: 700px; height: 400px;"></div></td></tr>
+  <tr><td><div id="chart_bl_cat_week" style="width: 900px; height: 700px;"></div></td>
+  <td><div id="chart_cat_week" style="width: 900px; height: 700px;"></div></td></tr>
+
+  </table>
+</body>
+</html>

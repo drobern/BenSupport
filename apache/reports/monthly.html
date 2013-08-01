@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" charset="utf-8"/>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+      
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawJan);
+      
+    function drawJan() {
+      var janData = $.ajax({
+          url: "http://192.168.223.58:5555/CustJan",
+          dataType:"json",
+          async: false
+          }).responseText;
+          
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(janData);
+
+      var options = {
+          				title: 'Tickets For January',
+          				vAxis: {title: 'Customers',  titleTextStyle: {color: 'red'}}
+      			};
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.BarChart(document.getElementById('chart_cust_jan'));
+      chart.draw(data, options);
+    }
+  </script>
+
+  <script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+      
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawFeb);
+      
+    function drawFeb() {
+      var FebData = $.ajax({
+          url: "http://192.168.223.58:5555/CustFeb",
+          dataType:"json",
+          async: false
+          }).responseText;
+          
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(FebData);
+
+      var options = {
+                  title: 'Tickets For February',
+                  vAxis: {title: 'Customers',  titleTextStyle: {color: 'red'}}
+            };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.BarChart(document.getElementById('chart_cust_feb'));
+      chart.draw(data, options);
+    }
+  </script>
+
+  <script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+      
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawMar);
+      
+    function drawMar() {
+      var marData = $.ajax({
+          url: "http://192.168.223.58:5555/CustMar",
+          dataType:"json",
+          async: false
+          }).responseText;
+          
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(marData);
+
+      var options = {
+                  title: 'Tickets For March',
+                  vAxis: {title: 'Customers',  titleTextStyle: {color: 'red'}}
+            };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.BarChart(document.getElementById('chart_cust_mar'));
+      chart.draw(data, options);
+    }
+  </script>
+  
+  <script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawApr);
+
+    function drawApr() {
+      var aprData = $.ajax({
+          url: "http://192.168.223.58:5555/CustApr",
+          dataType:"json",
+          async: false
+          }).responseText;
+
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(aprData);
+
+      var options = {
+                  title: 'Tickets For April',
+                  vAxis: {title: 'Customers',  titleTextStyle: {color: 'red'}}
+            };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.BarChart(document.getElementById('chart_cust_apr'));
+      chart.draw(data, options);
+    }
+  </script>
+
+  <script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawMay);
+
+    function drawMay() {
+      var mayData = $.ajax({
+          url: "http://192.168.223.58:5555/CustMay",
+          dataType:"json",
+          async: false
+          }).responseText;
+
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(mayData);
+
+      var options = {
+                  title: 'Tickets For May',
+                  vAxis: {title: 'Customers',  titleTextStyle: {color: 'red'}}
+            };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.BarChart(document.getElementById('chart_cust_may'));
+      chart.draw(data, options);
+    }
+  </script>
+
+   <script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawJune);
+
+    function drawJune() {
+      var juneData = $.ajax({
+          url: "http://192.168.223.58:5555/CustJune",
+          dataType:"json",
+          async: false
+          }).responseText;
+
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(juneData);
+
+      var options = {
+                  title: 'Tickets For June',
+                  vAxis: {title: 'Customers',  titleTextStyle: {color: 'red'}}
+            };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.BarChart(document.getElementById('chart_cust_june'));
+      chart.draw(data, options);
+    }
+  </script>
+
+   <script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawJuly);
+
+    function drawJuly() {
+      var julyData = $.ajax({
+          url: "http://192.168.223.58:5555/CustJuly",
+          dataType:"json",
+          async: false
+          }).responseText;
+
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(julyData);
+
+      var options = {
+                  title: 'Tickets For July',
+                  vAxis: {title: 'Customers',  titleTextStyle: {color: 'red'}}
+            };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.BarChart(document.getElementById('chart_cust_july'));
+      chart.draw(data, options);
+    }
+  </script>
+
+  <script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+      
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawJan);
+      
+    function drawJan() {
+      var janData = $.ajax({
+          url: "http://192.168.223.58:5555/CatJan",
+          dataType:"json",
+          async: false
+          }).responseText;
+          
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(janData);
+
+      var options = {
+                  title: 'Category January Tickets',
+      };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.PieChart(document.getElementById('chart_cat_jan'));
+      chart.draw(data, options);
+    }
+  </script>
+
+  <script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+      
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawJan);
+      
+    function drawJan() {
+      var febData = $.ajax({
+          url: "http://192.168.223.58:5555/CatFeb",
+          dataType:"json",
+          async: false
+          }).responseText;
+          
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(febData);
+
+      var options = {
+                  title: 'Category February Tickets',
+      };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.PieChart(document.getElementById('chart_cat_feb'));
+      chart.draw(data, options);
+    }
+  </script>
+
+  <script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+      
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawMar);
+      
+    function drawMar() {
+      var marData = $.ajax({
+          url: "http://192.168.223.58:5555/CatMar",
+          dataType:"json",
+          async: false
+          }).responseText;
+          
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(marData);
+
+      var options = {
+                  title: 'Category March Tickets',
+      };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.PieChart(document.getElementById('chart_cat_mar'));
+      chart.draw(data, options);
+    }
+</script>
+
+ <script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawApr);
+
+    function drawApr() {
+      var aprData = $.ajax({
+          url: "http://192.168.223.58:5555/CatApr",
+          dataType:"json",
+          async: false
+          }).responseText;
+
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(aprData);
+
+      var options = {
+                  title: 'Category April Tickets',
+      };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.PieChart(document.getElementById('chart_cat_apr'));
+      chart.draw(data, options);
+    }
+</script>
+
+<script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawMay);
+
+    function drawMay() {
+      var mayData = $.ajax({
+          url: "http://192.168.223.58:5555/CatMay",
+          dataType:"json",
+          async: false
+          }).responseText;
+
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(mayData);
+
+      var options = {
+                  title: 'Category May Tickets',
+      };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.PieChart(document.getElementById('chart_cat_may'));
+      chart.draw(data, options);
+    }
+</script>
+
+<script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawJune);
+
+    function drawJune() {
+      var juneData = $.ajax({
+          url: "http://192.168.223.58:5555/CatJune",
+          dataType:"json",
+          async: false
+          }).responseText;
+
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(juneData);
+
+      var options = {
+                  title: 'Category June Tickets',
+      };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.PieChart(document.getElementById('chart_cat_june'));
+      chart.draw(data, options);
+    }
+</script>
+<script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawJuly);
+
+    function drawJuly() {
+      var julyData = $.ajax({
+          url: "http://192.168.223.58:5555/CatJuly",
+          dataType:"json",
+          async: false
+          }).responseText;
+
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(julyData);
+
+      var options = {
+                  title: 'Category July Tickets',
+      };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.PieChart(document.getElementById('chart_cat_july'));
+      chart.draw(data, options);
+    }
+</script>
+</head>
+  <body>
+	<form> 
+    <input type=button 
+      value="Reports Home"
+      onClick="self.location='../'">
+    </form>
+    <H1>Benbria OPS Monthly Report</H1>
+    <p>
+		<H2>July</H2>
+	<ul>
+		<li>BlazePoint - Cause and fix found for SD Card boards. Testing scheduled for Mid July
+		<li>Choate - Installation completed after reinstalling on Dell after HP DL380 issues
+		<li>Nanticoke - SMS routing problems solved to complete all elements of deployment system
+		<li>MHCD - Delivered Admin training and assisted configuration of speed dial on both BC and 3300. Still waiting on Firewall for SMS
+		<li>Weirton - looking at TTS capabilities and requesting SNMP data scheduled for Aug2 release of 6.1
+		<li>Priceton - Boot GRUB menu on R420 causing issues on server restart. Ongoing testing and config changes to resolve
+	</ul>
+		<H2>June</H2>
+	<ul>
+		<li>Hobby Lobby - Requested repeating broadcasts due to tornados in OKC area including direct hit on their location
+		<li>Jay County - Delivered Absentee Notification licensing and Admin Training
+		<li>Princeton - Deployment completed, and delivery confirmation sent
+		<li>JITB - issues with nightly import required backend programming. Email nightly report to support to verify no issues going forward
+		<li>Weirton - require relicensing to connect to their own TTS server
+	</ul>
+		<H2>May</H2>
+	<ul>
+		<li>Vechtdal - 16 speakers migrated 3 identified as issues, 1 dead and 15 remain. Need to provide 2 speakers before restarting upgrade process
+		<li>TAMU - Migrated DNS and all speakers to Teague (6.0). Issue with hardcoded IP in every speakers hosts file
+		<li>TAMU - 13 of 28 speakers failed on last RMA order with Periden build. Most likely cause is that they were from batch of speakers that already were identified with hardware issues during SCDDC order in January.
+		<li>Periden - Problem with 2 speakers not booting up after remote NFS Upgrade. After looking at speakers Periden found one had total hardware failure and other showed kernel errors. Kernel errors can be fixed via development board and SD card to 'scrape' MTD partitions
+		<li>SMS - Discovered problem with characater conversion with JITB BlazeCast. Dev have workaround and new release will not have issue
+		<li>WQSB - Onsite training delivered for Campaign dialing to both Philemon and D'arcy
+		<li>WQSB - Post training and additional onsite visit, sounds like Michael again forgot everything and cannot use system properly. From quick glance it appears that a cleanup of groups/contacts will need to carried out. Investigation to follow
+		<li>Sequoia - purchased new TTS license and installed to support thier VM install. Neospeech does not allow ANY license migration
+	</ul>
+    </p>
+    <p>
+		<H2>April</H2>
+	<ul>
+		<li>Periden speaker software delivery passed acceptance for 'NON BlazeCom' deliveries. Reported issues with BlazeCom, may be software bug, but problem is worse in Periden Build.   No documentation delivered or update for setvolume script for bpadmin user and SD card install.
+		<li> TAMU delivery of 28 RMA speakers using Periden 1.6.7 BlazePoint Build
+		<li> SDCCD delivery of 16 new speakers with older 1.6.6 BlazePoint version to support BlazeCom
+		<li> Delivery of College EM (Ecole St. Eduoard) - First Mitel Bundle. End User training as part of PO to be delivered in French on April 22
+		<li> WQSB campaign dialing not suitable with Philemon due to call for second rate > 4 due to live paging for 300 speakers. Migrated system to Darcy. Ran successful testing and scheduled onsite training for both Darcy and Philemon on May 3 
+		<li> 3 more Mitel bundles sold and invoiced in FY13. Updated install guide for voice version on Benbria Website
+		<li> TAMU migration testing complete for BlazeCast 6.0 for AtHoc (CAP). Plan to fully migrate in early May
+	</ul>
+  		<H2>March</H2>
+    	<ul>
+      		<li>UMAN Activity around their Opt in/Out use of API's
+      		<li>Paging questions for phase II to support their analog 'Red Phones'. License requirements for endpoints as well as testing to support rolling paging over 150 SIP trunks
+      		<li>Vechtdal reported an additional 5 speakers down. Current plan is to remotely upgrade as soon as Periden software available and ship out 7 new speakers. 7 additional speakers shipped March 22
+      		<li>UMAN Ubuntu Kernel upgrade resulted in Postgress initialization resulting in DB Sync issue. DB was restored and HA required manual intervention as they were not in sync. Dev removed DB Initialization scripts running, and removed the Init scripts executing/installing during kernel patch upgrade
+      		<li>Trinity reported desktop issue, discovered as a result of their antivirus software (Sophos). Emailed Sophos who requested customer contact them to have application whitelisted
+      		<li>WLU reported MAC desktop not installing. Due to clients having Trusted CA's removed from their System repository. Added our CA (GlobalSign), and working. Requested this be investigated on remaining desktops
+		<li>TAMU migration of NSF server from SUN to new Dell 210 II completed and tested
+    		<li>TAMU RMA 28 Propox Speakers. Speakers recieved and replacements being prepared
+		<li>San Joaquin delivered, requested date for Admin Training
+		<li>Weirton install completed. Issues with RAID config, Duplicate IP on Voice Network and Firewall during install. 
+		<li>TAMU migration to 6.0 on Dell 420 for CAP integration
+	</ul>
+    </p>
+    <p>
+  		<H2>February</H2>
+    	<ul>
+      		<li>6 TAMU tickets for BlazePoint in 1.5 weeks!
+      		<li>Desktop client issues with ENPQ and Trinity
+      		<li>Undetected WLU server outage as a result of too many Desktop client connections. Connection settings have been increased in BlazeCast and Nagios monitoring running on Benbria Nagios server for customer
+      		<li>UMAN reported server error on their Dell 620 as a result of requiring both Dell firmware patch and Ubuntu Kernel patch required for support of Ubuntu on their hardware - NOTE: Kernel patch can be applied to 420's too
+    	</ul>
+  	</p>
+  	<p>
+  	  <H2>January</H2>
+      <ul>
+      	<li>Delivery of UMAN HA BC for ENS
+      	<li>Delivery of Nanticoke for Hospital Code alerts - required integration of Ascom Email to SMS conversion
+      	<li>ENPQ speaker work and licensing for December BlazePoint order
+      </ul>
+  	</p>
+
+    <table border="1" bordercolor="#ffffff" style="background-color:#ffffff" 
+		   width="100%" cellpadding="0" cellspacing="1">
+    <!--Div that will hold the bar chart-->
+    <tr><td><div id="chart_cust_july" style="width: 900px; height: 700px;"></div></td>
+    <td><div id="chart_cat_july" style="width: 1100px; height: 700px;"></div></td></tr>
+    <tr><td><div id="chart_cust_june" style="width: 900px; height: 700px;"></div></td>
+    <td><div id="chart_cat_june" style="width: 1100px; height: 700px;"></div></td></tr>
+    <tr><td><div id="chart_cust_may" style="width: 900px; height: 700px;"></div></td>
+    <td><div id="chart_cat_may" style="width: 1100px; height: 700px;"></div></td></tr>
+    <tr><td><div id="chart_cust_apr" style="width: 900px; height: 700px;"></div></td>
+    <td><div id="chart_cat_apr" style="width: 1100px; height: 700px;"></div></td></tr>
+    <tr><td><div id="chart_cust_mar" style="width: 900px; height: 700px;"></div></td>
+    <td><div id="chart_cat_mar" style="width: 1100px; height: 700px;"></div></td></tr> 
+	<tr><td><div id="chart_cust_feb" style="width: 900px; height: 700px;"></div></td>
+    <td><div id="chart_cat_feb" style="width: 1100px; height: 700px;"></div></td></tr>
+    <tr><td><div id="chart_cust_jan" style="width: 900px; height: 700px;"></div></td>
+    <td><div id="chart_cat_jan" style="width: 1100px; height: 700px;"></div></td></tr>
+    </table>
+  </body>
+</html>

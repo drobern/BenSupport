@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" charset="utf-8"/>
+
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['table']});
+      
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawTable);
+
+      
+    function drawTable() {
+      var Tickets = $.ajax({
+          url: "http://192.168.223.58:5555/Tickets",
+          dataType:"json",
+          async: false
+          }).responseText;
+          
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(Tickets);
+      
+      // Instantiate and draw our chart, passing in some options.
+      var table = new google.visualization.Table(document.getElementById('chart_div'));
+      table.draw(data, {showRowNumber: true});
+
+      google.visualization.events.addListener(table, 'select', function() {
+      var row = table.getSelection()[0].row;
+     // document.getElementById('smname').value = row;
+     // alert('You selected ' + data.getValue(row, 0));
+      window.open("reports/ticket.html?id="+data.getValue(row, 0),"_self");
+     // window.location.replace("http://10.126.100.98:5555/poo&id="+data.getValue(row, 0));
+      });
+
+    }
+
+
+  </script>
+	
+<body>
+  <t><input type=button 
+      value="Ticket Metrics"
+      onClick="self.location='reports/status'"></t>
+  <t><input type=button 
+      value="Weekly Data"
+      onClick="self.location='reports/weekly'"></t>
+   <t><input type=button
+      value="Monthly BlazeLoop Data"
+      onClick="self.location='reports/monthloop'"></t>
+  <t><input type=button 
+      value="Monthly BlazeCast Data"
+      onClick="self.location='reports/monthly'"></t>
+  <t><input type=button 
+      value="BlazeCast Aggregates"
+      onClick="self.location='reports/customer'"></t>
+  <t><input type=button
+      value="BlazeLoop Aggregates"
+      onClick="self.location='reports/blazeloop'"></t>
+   <t><input type=button
+      value="KnowledgeBase"
+      onClick="self.location='reports/forum'"></t>
+  
+    <br><H2><b>Choate Dell Server installed and configured. Valcom and page group config outstanding and setting training date
+<!--Div that will hold the bar chart-->
+    <div id="chart_div"></div></td></tr>
+
+
+</body>
+</html>
